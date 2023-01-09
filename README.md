@@ -42,8 +42,7 @@ This section is about your regular work / project, not about the code in this re
 
 Think about guiding refactoring-work in your regular/project teams. Think of the day-to-day work done in your team, and improving the quality of code.
 
-You have seen a few workflows in this repository. They are quality-gates to prevent duplication, control complexity and prove functionality. Do you think some of them have potential to guide code-improvements in your team? yes
+You have seen a few workflows in this repository. They are quality-gates to prevent duplication, control complexity and prove functionality. Do you think some of them have potential to guide code-improvements in your team? yes yes/no
 
 During the next four weeks, what improvement do you plan in your code-quality practice? (in your regular work, not in this repository!)
-make my code more modular
-try to incorporate the pure functions to make unit testing easier
+make my code more modulartry, to incorporate the pure functions to make unit testing easier, naming convention should be appropriate so that it makes the functionality of the function easily understandable.
