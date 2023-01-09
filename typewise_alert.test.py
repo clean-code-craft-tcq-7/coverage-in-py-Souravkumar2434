@@ -25,6 +25,26 @@ class TypewiseTest(unittest.TestCase):
     self.assertTrue(typewise_alert.infer_breach(1, 0, 40) == 'NORMAL')
     self.assertTrue(typewise_alert.infer_breach(39, 0, 40) == 'NORMAL')
     self.assertTrue(typewise_alert.infer_breach(41, 0, 40) == 'TOO_HIGH')
+    
+    #SEND_ALERTS TEST
+    batteryChar = {'coolingType' : 'PASSIVE_COOLING'}
+    self.assertTrue(typewise_alert.check_and_alert('TO_CONTROLLER', batteryChar, 1) == 1)
+    self.assertTrue(typewise_alert.check_and_alert('TO_EMAIL', batteryChar, -1) == 1)
+    self.assertTrue(typewise_alert.check_and_alert('TO_EMAIL', batteryChar, 36) == 1)
+    self.assertTrue(typewise_alert.check_and_alert('TO_EMAIL', batteryChar, 1) == 0)
+    self.assertTrue(typewise_alert.check_and_alert('TO_EMAIL', batteryChar, 34) == 0)
+    batteryChar = {'coolingType' : 'HI_ACTIVE_COOLING'}
+    self.assertTrue(typewise_alert.check_and_alert('TO_CONTROLLER', batteryChar, 1) == 1)
+    self.assertTrue(typewise_alert.check_and_alert('TO_EMAIL', batteryChar, -1) == 1)
+    self.assertTrue(typewise_alert.check_and_alert('TO_EMAIL', batteryChar, 46) == 1)
+    self.assertTrue(typewise_alert.check_and_alert('TO_EMAIL', batteryChar, 1) == 0)
+    self.assertTrue(typewise_alert.check_and_alert('TO_EMAIL', batteryChar, 44) == 0)
+    batteryChar = {'coolingType' : 'MED_ACTIVE_COOLING'}
+    self.assertTrue(typewise_alert.check_and_alert('TO_CONTROLLER', batteryChar, 1) == 1)
+    self.assertTrue(typewise_alert.check_and_alert('TO_EMAIL', batteryChar, -1) == 1)
+    self.assertTrue(typewise_alert.check_and_alert('TO_EMAIL', batteryChar, 41) == 1)
+    self.assertTrue(typewise_alert.check_and_alert('TO_EMAIL', batteryChar, 1) == 0)
+    self.assertTrue(typewise_alert.check_and_alert('TO_EMAIL', batteryChar, 39) == 0)
 
 if __name__ == '__main__':
   unittest.main()
