@@ -47,6 +47,4 @@ You have seen a few workflows in this repository. They are quality-gates to prev
 During the next four weeks, what improvement do you plan in your code-quality practice? (in your regular work, not in this repository!)
 <<<<<<< HEAD
 **Make use of pure functions. Reducing the cyclomatic complexity by limiting the use of if/else. Improve the code coverage by implementing test cases for all the possible situations.Separate the test code and main code.**
-=======
-**make my code more modulartry, to incorporate the pure functions to make unit testing easier, naming convention should be appropriate so that it makes the functionality of the function easily understandable.**
->>>>>>> 17a9c43 (trying for enter reflections)
+
