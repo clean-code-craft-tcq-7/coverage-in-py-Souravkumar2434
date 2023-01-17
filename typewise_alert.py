@@ -1,5 +1,5 @@
 from limits import LIMITS
-from send_alerts import send_to_controller, send_to_email
+from send_alerts import send_alerts
 
 
 def infer_breach(value, lowerLimit, upperLimit):
@@ -12,15 +12,7 @@ def infer_breach(value, lowerLimit, upperLimit):
 
 
 def check_and_alert(alertTarget, batteryChar, temperatureInC):
-  Flg = 0
   lowerlimit, upperlimit = LIMITS[batteryChar['coolingType']]
-  breachType =\
-    infer_breach(temperatureInC, lowerlimit, upperlimit)
-  if alertTarget == 'TO_CONTROLLER':
-    Flg= send_to_controller(breachType)
-    return Flg
-  elif alertTarget == 'TO_EMAIL':
-    Flg= send_to_email(breachType)
-    return Flg
-
+  breachType = infer_breach(temperatureInC, lowerlimit, upperlimit)
+  send_alerts(alertTarget, breachType)
 
